@@ -1,0 +1,397 @@
+@font-face {
+  font-family: 'Nikoovers';
+  src: url('./assets/fonts/Nikoovers-GORam.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NexaRegular';
+  src: url('./assets/fonts/NexaRegular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NexaBold';
+  src: url('./assets/fonts/Nexa\ Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NexaLight';
+  src: url('./assets/fonts/Nexa\ Light.otf') format('opentype');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'NexaRegular';
+}
+
+body {
+  letter-spacing: 1px;
+  color: #373737;
+  overflow-x: hidden;
+}
+
+.topo {
+  position: relative;
+  background-image: url('./assets/imgs/Design_sem_nome.png');
+  background-position: center 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 80vh;
+  color: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: start;
+  gap: 40px;
+}
+
+.topo img {
+  width: 550px;
+}
+
+.texto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  width: 35%;
+  height: 100%;
+}
+
+.texto-container h1 {
+  font-size: 35px;
+  font-family: 'NexaBold';
+  width: 500px;
+  color: #fff;
+}
+
+.texto-container p {
+  font-size: 18px;
+  width: 500px;
+  color: #fff;
+}
+
+.texto-container img {
+  width: 300px;
+  margin-bottom: 30px;
+}
+
+.texto-container a {
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 15px 40px;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'NexaBold';
+  margin-top: 10px;
+  transition: all .3s;
+}
+
+.texto-container a:hover {
+  color: #ca60d6;
+  background-color: #fff;
+}
+
+.texto-container hr {
+  width: 30%;
+  height: 2px;
+  background-color: #ca60d6;
+  border-color: #ca60d6;
+}
+
+.separador {
+  background-color: #eedaf0;
+  text-align: center;
+  padding: 60px 10%;
+  font-size: 16px;
+  font-family: 'NexaBold';
+}
+
+.sobre {
+  background-color: #FCEBFE
+}
+
+.cards {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px 0;
+  flex-wrap: wrap;
+}
+
+.cards .card {
+  width: 320px;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(202, 96, 214, 0.7);
+}
+
+.card h3 {
+  font-family: 'NexaBold';
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+}
+
+.sobreAna {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sobreAna>div {
+  width: 700px;
+}
+
+.sobreAna>div h2 {
+  font-size: 38px;
+  width: 400px;
+  font-family: 'NexaBold';
+}
+
+.sobreAna>div hr {
+  margin-bottom: 30px;
+  width: 200px;
+  height: 2px;
+  background-color: #ca60d6;
+  border: #ca60d6;
+}
+
+.sobreAna>div p {
+  font-size: 18px;
+}
+
+.sobreAna img {
+  width: 500px;
+}
+
+.cta {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px;
+  background: linear-gradient(to right, #874491, #ca60d6);
+}
+
+.cta>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.cta>div img {
+  width: 300px;
+}
+
+.cta img {
+  width: 500px;
+}
+
+.cta a {
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 15px 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'NexaBold';
+  margin-top: 10px;
+  transition: all .3s;
+}
+
+.cta a:hover {
+  background-color: #fff;
+  color: #ca60d6;
+}
+
+.flores {
+  position: absolute;
+  width: 300px !important;
+  top: 0;
+  right: -100px;
+  transform: rotate(180deg);
+}
+
+.planos {
+  background-color: #FCEBFE;
+  text-align: center;
+  padding: 60px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.planos-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.plano {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+  background-color: #eedaf0;
+  border-radius: 20px 20px 8px 8px;
+  padding: 80px 10px;
+  border-top: 10px solid #874491;
+  box-shadow: 0 0 10px 0;
+}
+.plano1 {
+  border-top: 10px solid #ca60d6;
+}
+
+.plano h2 {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  padding: 8px;
+  background-color: #ca60d6;
+  border-radius: 0 8px 8px 0;
+  color: #fff;
+}
+
+.plano p {
+  font-size: 14px !important;
+}
+
+.plano p:nth-child(2) {
+  margin-bottom: 10px;
+}
+.plano p:nth-child(4) {
+  font-size: 11px !important;
+}
+
+.plano>span {
+  text-decoration: line-through;
+}
+
+.plano h3 {
+  font-size: 38px;
+  font-family: 'NexaBold';
+}
+
+.planos>h3 {
+  font-size: 42px;
+  width: 900px;
+  font-family: 'NexaBold';
+}
+
+.planos>p {
+  font-size: 22px;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.plano ul {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plano ul li {
+  list-style: none;
+  text-align: left;
+}
+
+.plano ul li span {
+  color: #ca60d6;
+}
+
+.plano .comprar-btn {
+  text-decoration: none;
+  font-family: 'Nexabold';
+  padding: 10px 40px;
+  margin-top: 10px;
+  background-color: #ca60d6;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.plano .comprar-btn:hover {
+  color: #ca60d6;
+  border: 2px solid #ca60d6;
+  background-color: transparent;
+}
+
+#form-checkout {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.container {
+  height: 18px;
+  display: inline-block;
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 2px;
+  padding: 1px 2px;
+}
+
+#form-checkout {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.container {
+  margin-bottom: 15px;
+}
+
+#form-checkout__cardNumber,
+#form-checkout__expirationDate,
+#form-checkout__securityCode {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.progress-bar {
+  width: 100%;
+  margin-top: 10px;
+}
