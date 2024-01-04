@@ -1,4 +1,4 @@
-const mp = new MercadoPago("TEST-28522978-5d6e-4bcc-abe7-245ce7e5c22f");
+const mp = new MercadoPago("CHAVE-AQUI");
 
 document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
