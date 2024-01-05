@@ -107,12 +107,12 @@ body {
   background-color: #eedaf0;
   text-align: center;
   padding: 60px 10%;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'NexaBold';
 }
 
 .sobre {
-  background-color: #FCEBFE
+  background-color: #FCEBFE;
 }
 
 .cards {
@@ -165,10 +165,6 @@ body {
   height: 2px;
   background-color: #ca60d6;
   border: #ca60d6;
-}
-
-.sobreAna>div p {
-  font-size: 18px;
 }
 
 .sobreAna img {
@@ -256,6 +252,7 @@ body {
   border-top: 10px solid #874491;
   box-shadow: 0 0 10px 0;
 }
+
 .plano1 {
   border-top: 10px solid #ca60d6;
 }
@@ -277,11 +274,12 @@ body {
 .plano p:nth-child(2) {
   margin-bottom: 10px;
 }
+
 .plano p:nth-child(4) {
   font-size: 11px !important;
 }
 
-.plano>span {
+.plano p span {
   text-decoration: line-through;
 }
 
@@ -333,6 +331,17 @@ body {
   border: 2px solid #ca60d6;
   background-color: transparent;
 }
+
+footer {
+  height: 250px;
+  background-color: #eedaf0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #373737;
+}
+
+/* formulario */
 
 #form-checkout {
   display: flex;
