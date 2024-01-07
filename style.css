@@ -106,7 +106,7 @@ body {
 .separador {
   background-color: #eedaf0;
   text-align: center;
-  padding: 60px 10%;
+  padding: 60px 10px;
   font-size: 14px;
   font-family: 'NexaBold';
 }
@@ -290,7 +290,7 @@ body {
 
 .planos>h3 {
   font-size: 42px;
-  width: 900px;
+  max-width: 900px;
   font-family: 'NexaBold';
 }
 
@@ -339,6 +339,18 @@ footer {
   justify-content: space-around;
   align-items: center;
   color: #373737;
+}
+
+
+footer>div:last-child {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+footer img {
+  width: 130px;
+  margin-top: -30px;
 }
 
 /* formulario */
@@ -403,4 +415,88 @@ button:hover {
 .progress-bar {
   width: 100%;
   margin-top: 10px;
+}
+
+
+@media (max-width: 500px) {
+  .topo {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .topo>img {
+    width: 100%;
+  }
+
+  .texto-container a {
+    width: 300px;
+  }
+
+  .texto-container hr {
+    width: 300px;
+  }
+
+  .separador {
+    font-size: 12px;
+  }
+
+  .sobreAna {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .cards .card {
+    width: 80%;
+    max-width: 400px;
+  }
+  .sobreAna>div {
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .sobreAna>div h2 {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .sobreAna>div hr {
+    width: 100%;
+  }
+
+  .sobreAna img {
+    width: 400px;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .flores {
+    width: 200px !important;
+    bottom: 0;
+    top: auto;
+    right: -80px;
+  }
+
+  .planos>h3 {
+    font-size: 30px;
+  }
+
+  footer {
+    text-align: center;
+    flex-direction: column;
+    justify-content: sp;
+    padding: 20px 0;
+    height: 350px;
+  }
+
+  footer>div:last-child {
+    flex-direction: column;
+    align-items: center;
+  }
 }
