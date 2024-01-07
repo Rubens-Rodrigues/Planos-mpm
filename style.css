@@ -245,7 +245,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height: 500px;
+  height: 550px;
   background-color: #eedaf0;
   border-radius: 20px 20px 8px 8px;
   padding: 80px 10px;
@@ -430,7 +430,18 @@ button:hover {
   }
 
   .texto-container a {
-    width: 300px;
+    width: 90vw;
+  }
+
+  .texto-container h1 {
+    width: 100vw;
+    font-size: 26px;
+    padding: 0 10px;
+  }
+
+  .texto-container p {
+    width: 100vw;
+    padding: 0 10px;
   }
 
   .texto-container hr {
@@ -474,6 +485,15 @@ button:hover {
     flex-direction: column;
     align-items: center;
     gap: 50px;
+    text-align: center;
+  }
+
+  .cta img {
+    width: 300px;
+  }
+
+  .cta a {
+    width: 90vw;
   }
 
   .flores {
