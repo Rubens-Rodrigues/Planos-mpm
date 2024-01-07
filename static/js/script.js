@@ -1,9 +1,8 @@
 const mp = new MercadoPago("TEST-28522978-5d6e-4bcc-abe7-245ce7e5c22f");
 
 document.addEventListener('DOMContentLoaded', function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const amount = urlParams.get('amount') || '1';
-  const plan = urlParams.get('plan');
+  const amount = document.getElementById('amount').value;
+  console.log("Valor: "+amount)
 
 
   const cardForm = mp.cardForm({

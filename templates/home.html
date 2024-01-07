@@ -1,15 +1,15 @@
 {% extends 'base/_index.html' %}
 {% block content %}
-  <main>
+  
     <section class="topo">
       <div class="texto-container">
-        <img src="static/imgs/positive-se_neg.png" alt="Logo" />
+        <img src="/static/imgs/positive-se_neg.png" alt="Logo" />
         <h1>Faça parte de um grupo seleto de empreendedoras.</h1>
         <hr />
         <p>Apoiar e inspirar mulheres a atingir seu máximo potencial em todas as áreas da vida e dos negócios.</p>
         <a href="http://" target="_blank" rel="noopener noreferrer">SEJA UMA POSITIVA</a>
       </div>
-      <img src="static/imgs/montagemCoracao.png" alt="Logo" />
+      <img src="/static/imgs/montagemCoracao.png" alt="Logo" />
     </section>
 
     <div class="separador">
@@ -37,7 +37,7 @@
       </div>
 
       <div class="sobreAna">
-        <img src="static/imgs/AnaP.png" alt="" />
+        <img src="/static/imgs/AnaP.png" alt="" />
 
         <div>
           <h2>Sobre a idealizadora e o movimento.</h2>
@@ -57,11 +57,11 @@
 
     <section class="cta">
       <div>
-        <img src="static/imgs/positive-se_branca.png" alt="Logo" />
+        <img src="/static/imgs/positive-se_branca.png" alt="Logo" />
         <a href="http://" target="_blank" rel="noopener noreferrer">QUERO SER UMA POSITIVA</a>
       </div>
-      <img src="static/imgs/montagemCoracao.png" alt="Imagem" />
-      <img src="static/imgs/flores-neg.png" alt="Flores" class="flores" />
+      <img src="/static/imgs/montagemCoracao.png" alt="Imagem" />
+      <img src="/static/imgs/flores-neg.png" alt="Flores" class="flores" />
     </section>
 
     <section class="planos">
@@ -80,34 +80,12 @@
             <h3>R${{ product.price_recurency }} */{{ product.type_recurency }}</h3>
             <p>{{ product.observation }}</p>
             <ul>{{ product.description|safe }}</ul>
-            <button class="comprar-btn" data-amount="967" data-plan="basico">COMPRAR</button>
+            <a class="btn comprar-btn" class="comprar-btn" href="{% url 'checkout' product.id %}" class="btn btn-primary"> Comprar </a>
+            {% comment %} <button class="comprar-btn" onclick="{% url 'checkout' product.id %}" data-amount="967" data-plan="basico">COMPRAR</button> {% endcomment %}
           </div>
         {% endfor %}
       </div>
     </section>
 
-    <footer>
-      <div>
-        <img src="static/imgs/logo2.png" alt="Logo" />
-        <p>
-          © 2024 Todos os direitos reservados
-          <br />
-          Positive Solução Empresarial
-          <br />
-          CNPJ 20.925.744/0001-24
-        </p>
-      </div>
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512">
-          <!-- !Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-          <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
-        </svg>
-        <p>
-          Dúvidas ou quer falar comigo?<br />
-          nos envie um e-mail para: <br />
-          contato@positiveempresarial.com.br
-        </p>
-      </div>
-    </footer>
-  </main>
+  
 {% endblock %}

@@ -16,7 +16,14 @@ def index(request):
     context={
         'products':products,
         'categories':categories,
-        "title": "Positive-se Mulher"
+        'title': 'Positive-se Mulher'
     }
     
     return render(request, 'home.html', context)
+
+def checkout(request, product_id):
+    product = store.Product.objects.get(id=product_id)
+    context = {
+        'product': product
+    }
+    return render(request, 'checkout.html', context)
