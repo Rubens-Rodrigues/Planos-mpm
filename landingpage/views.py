@@ -20,10 +20,3 @@ def index(request):
     }
     
     return render(request, 'home.html', context)
-
-def checkout(request, product_id):
-    product = store.Product.objects.get(id=product_id)
-    context = {
-        'product': product
-    }
-    return render(request, 'checkout.html', context)
