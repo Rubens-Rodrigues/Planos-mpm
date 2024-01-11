@@ -93,7 +93,7 @@
 			<div class="planos-content">
 				<div class="plano plano1">
 					<h2>Plano Básico</h2>
-					<p>De <span id="valor-a-pagar">R$1.499,00</span> por R$967,00 ou</p>
+					<p>De <span id="valor-a-pagar">R$1.499,00</span> por R$1.176,00 ou</p>
 					<h3>R$98,00 */mês</h3>
 					<p>*Cobrança parcelada com juros do cartão.</p>
 					<ul>
@@ -103,13 +103,13 @@
 						<li><span style="color: red">&#10008;</span> 12 meses de acesso a plataforma</li>
 						<li><span style="color: red">&#10008;</span> 6 imersões anuais presenciais</li>
 						<li><span style="color: red">&#10008;</span> Acesso a comunidade empreendedora</li>
-						<li><span style="color: red">&#10008;</span> Trilha de jornadas na Plataforma Portal das Positivas.</li>
+						<li><span style="color: red">&#10008;</span> Roda da Mulher Positiva.</li>
 					</ul>
-					<button class="comprar-btn" data-amount="967" data-plan="basico">COMPRAR</button>
+					<a href="#" class="comprar-btn">COMPRAR</a>
 				</div>
 				<div class="plano">
 					<h2>Plano Premium</h2>
-					<p>De <span id="valor-a-pagar">R$3.228,00</span> por R$2.388,00 ou</p>
+					<p>De <span id="valor-a-pagar">R$3.228,00</span> por R$2.905,00 ou</p>
 					<h3>R$242,00 */mês</h3>
 					<p>*Cobrança parcelada com juros do cartão.</p>
 					<ul>
@@ -119,9 +119,9 @@
 						<li><span>&#10004;</span> 12 meses de acesso a plataforma</li>
 						<li><span>&#10004;</span> 6 imersões anuais presenciais</li>
 						<li><span>&#10004;</span> Acesso a comunidade empreendedora</li>
-						<li><span>&#10004;</span> Trilha de jornadas na Plataforma Portal das Positivas.</li>
+						<li><span>&#10004;</span> Roda da Mulher Positiva.</li>
 					</ul>
-					<button class="comprar-btn" data-amount="2388" data-plan="premium">COMPRAR</button>
+					<a href="#" class="comprar-btn">COMPRAR</a>
 				</div>
 			</div>
 		</section>
@@ -151,23 +151,6 @@
 			</div>
 		</footer>
 	</main>
-
-	<script>document.addEventListener('DOMContentLoaded', function () {
-			const comprarBtns = document.querySelectorAll('.comprar-btn');
-
-			comprarBtns.forEach(btn => {
-				btn.addEventListener('click', function (event) {
-					event.preventDefault();
-
-					const amount = this.getAttribute('data-amount');
-					const plan = this.getAttribute('data-plan');
-
-					window.location.href = `./checkout.html?amount=${amount}&plan=${plan}`;
-				});
-			});
-		});
-	</script>
-
 
 </body>
 
