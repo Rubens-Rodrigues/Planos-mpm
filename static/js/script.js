@@ -1,8 +1,10 @@
-const mp = new MercadoPago("TEST-28522978-5d6e-4bcc-abe7-245ce7e5c22f");
+const mp = new MercadoPago("TEST-7a27f582-9905-4ba0-aefa-9d3db52a293d");
 
 document.addEventListener('DOMContentLoaded', function () {
-  const amount = document.getElementById('amount').value;
-  console.log("Valor: "+amount)
+  const amount = parseFloat(document.getElementById('amount').value).toFixed(2);
+  const csrfmiddlewaretoken = document.querySelector('input[name=csrfmiddlewaretoken]').value
+  const productName = document.querySelector('input[id=form-checkout__productName]').value
+  const productId = document.querySelector('input[id=form-checkout__productId]').value
 
 
   const cardForm = mp.cardForm({
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cardholderEmail: {
         id: "form-checkout__cardholderEmail",
         placeholder: "E-mail",
-      },
+      }
     },
     callbacks: {
       onFormMounted: error => {
@@ -70,14 +72,17 @@ document.addEventListener('DOMContentLoaded', function () {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "X-CSRFToken": csrfmiddlewaretoken
           },
           body: JSON.stringify({
             token,
+            csrfmiddlewaretoken: csrfmiddlewaretoken,
             issuer_id,
             payment_method_id,
             transaction_amount: Number(amount),
             installments: Number(installments),
-            description: "Descrição do produto",
+            description: productName,
+            product_id: productId,
             payer: {
               email,
               identification: {
