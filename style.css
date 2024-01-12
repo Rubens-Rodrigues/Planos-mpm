@@ -199,6 +199,7 @@ body {
   border: 2px solid #fff;
   border-radius: 30px;
   padding: 15px 40px;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
@@ -245,7 +246,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height: 550px;
+  height: 500px;
   background-color: #eedaf0;
   border-radius: 20px 20px 8px 8px;
   padding: 80px 10px;
@@ -324,6 +325,7 @@ body {
   background-color: #ca60d6;
   color: #fff;
   border-radius: 20px;
+  margin-top: 40px;
 }
 
 .plano .comprar-btn:hover {
@@ -332,13 +334,125 @@ body {
   background-color: transparent;
 }
 
+.faq {
+  background-color: #eedaf0;
+  text-align: center;
+  padding: 40px 10px;
+}
+
+.faq-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.faq-item {
+  width: 48%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.faq-question {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FCEBFE;
+}
+
+.faq-answer {
+  display: none;
+  padding: 10px;
+  background-color: #fff;
+  text-align: justify;
+}
+
+.arrow {
+  font-size: 30px;
+  transform: rotate(90deg);
+  transition: all .3s ease-in-out;
+}
+
+.open .arrow {
+  transform: rotate(270deg);
+}
+
+.form {
+  height: 90vh;
+  background-color: #FCEBFE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-img img {
+  width: 455px;
+}
+
+.div-form {
+  padding: 20px;
+  text-align: center;
+}
+
+.div-form img {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.div-form form {
+  box-shadow: 0 0 10px rgba(202, 96, 214, 0.7);
+  border-radius: 8px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.div-form span {
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-family: "Nikoovers";
+}
+
+.div-form form input{
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #eedaf0;
+  outline-color: #ca60d6;
+}
+
+.div-form form input[type='button']{
+  margin-top: 10px;
+  background-color: #ca60d6;
+  color: #fff;
+  font-family: 'NexaBold';
+  letter-spacing: .5px;
+  border: 2px solid transparent;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.div-form form input[type='button']:hover {
+  background-color: transparent;
+  border: 2px solid #ca60d6;
+  color: #ca60d6;
+}
+
 footer {
   height: 250px;
-  background-color: #eedaf0;
-  display: flex;
+  background: linear-gradient(to right, #874491, #ca60d6);  display: flex;
   justify-content: space-around;
   align-items: center;
-  color: #373737;
+  color: #fff;
 }
 
 
@@ -354,7 +468,7 @@ footer img {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .topo {
     flex-direction: column;
     height: auto;
@@ -398,6 +512,7 @@ footer img {
     width: 80%;
     max-width: 400px;
   }
+
   .sobreAna>div {
     width: 100%;
     text-align: center;
@@ -443,6 +558,26 @@ footer img {
     font-size: 30px;
   }
 
+  .faq-container {
+    flex-direction: column;
+  }
+
+  .faq-item {
+    width: 100%;
+  }
+
+  .form {
+    height: auto;
+    background-color: #FCEBFE;
+    flex-direction: column-reverse;
+    padding-top: 40px;
+  }
+
+  .form-img img {
+    width: 350px;
+    margin-bottom: -8px;
+  }
+  
   footer {
     text-align: center;
     flex-direction: column;
