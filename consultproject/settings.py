@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "landingpage",
     "store",
+    'cpf_field',
 ]
 
 MIDDLEWARE = [

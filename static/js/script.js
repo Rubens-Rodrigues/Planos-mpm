@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const productName = document.querySelector('input[id=form-checkout__productName]').value
   const productId = document.querySelector('input[id=form-checkout__productId]').value
 
-
   const cardForm = mp.cardForm({
     amount: amount,
     iframe: true,
