@@ -1,0 +1,3 @@
+mercadopago
+django-cpf
+Pillow

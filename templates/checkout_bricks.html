@@ -1,0 +1,15 @@
+{% extends 'base/_index.html' %}
+{% block content %}
+  <section class="planos">
+    <p>Finalize o pagamento do {{ product.name }}</p>
+    <p>Valor total {{ product.price_discount }}</p>
+    <div id="cardPaymentBrick_container">
+      {% csrf_token %}
+      <input type="hidden" id="amount" />
+      <input type="hidden" id="checkout__productName" value="{{ product.name }}" />
+      <input type="hidden" id="checkout__productId" value="{{ product.id }}" />
+      <input type="hidden" id="checkout__productValue" value="{{ product.price_discount }}" />
+    </div>
+    <script src="/static/js/checkout_bricks.js"></script>
+  </section>
+{% endblock %}

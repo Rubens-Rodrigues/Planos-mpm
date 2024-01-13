@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Nikoovers';
-  src: url('./assets/fonts/Nikoovers-GORam.ttf') format('truetype');
+  src: url('../fonts/Nikoovers-GORam.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'NexaRegular';
-  src: url('./assets/fonts/NexaRegular.otf') format('opentype');
+  src: url('../fonts/NexaRegular.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'NexaBold';
-  src: url('./assets/fonts/Nexa\ Bold.otf') format('opentype');
+  src: url('../fonts/Nexa_Bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'NexaLight';
-  src: url('./assets/fonts/Nexa\ Light.otf') format('opentype');
+  src: url('./assets/fonts/Nexa_Light.otf') format('opentype');
 }
 
 * {
@@ -33,7 +33,7 @@ body {
 
 .topo {
   position: relative;
-  background-image: url('./assets/imgs/Design_sem_nome.png');
+  background-image: url('../imgs/Design_sem_nome.png');
   background-position: center 10%;
   background-size: cover;
   background-repeat: no-repeat;

@@ -1,0 +1,29 @@
+{% extends 'base/_index.html' %}
+{% block content %}
+<section class="planos">
+  <p>Finalize o pagamento do {{ product.name }}</p>
+  {% comment %} TODO: realizar a implementação da formatação do valor em reais nesse campo abaixo {% endcomment %}
+  <p>Valor total {{ product.price_discount }}
+  <form id="form-checkout" method="post">
+    {% csrf_token %}
+    <div name="form-checkout__cardNumber" id="form-checkout__cardNumber" class="container"></div>
+    <div name="form-checkout__expirationDate" id="form-checkout__expirationDate" class="container"></div>
+    <div name="form-checkout__securityCode" id="form-checkout__securityCode" class="container"></div>
+    <input type="hidden" id="amount" value="{{ product.price_discount }}" />
+    <input type="hidden" id="form-checkout__productName" name="form-checkout__productName" value="{{ product.name }}" />
+    <input type="hidden" id="form-checkout__productId" name="form-checkout__productId" value="{{ product.id }}" />
+    <input type="text" name="form-checkout__cardholderName" id="form-checkout__cardholderName" />
+    <select name="form-checkout__issuer" id="form-checkout__issuer" required></select>
+    <select name="form-checkout__installments" id="form-checkout__installments" required></select>
+    <select name="form-checkout__identificationType" id="form-checkout__identificationType" required></select>
+    <input type="text" name="form-checkout__identificationNumber" id="form-checkout__identificationNumber" required />
+    <input type="email" name="form-checkout__cardholderEmail" id="form-checkout__cardholderEmail" required />
+
+    <button type="submit" id="form-checkout__submit">Pagar</button>
+    <progress value="0" class="progress-bar">Carregando...</progress>
+  </form>
+
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="/static/js/script.js"></script>
+</section>
+{% endblock %}
