@@ -7,7 +7,6 @@ import json
 logger = logging.getLogger("store.views")
 
 def checkout(request, product_id):
-    # product = Product.objects.get_object_or_404(id=product_id)
     product = get_object_or_404(Product, pk=product_id)
     context = {
         'product': product
@@ -33,6 +32,8 @@ def process_payment(request):
         
         payment_process = MercadoPagoPayment(amount, token, product_name, installments, payment_method, email, identification_type, identification_number)
         response_payment = payment_process.makePayment()
+        
+        #TODO: add função para cadastrar o usuario no banco banco de dados
                 
         context = {
             'response': response_payment

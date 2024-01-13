@@ -15,19 +15,13 @@ class MercadoPagoPayment():
 
     def makePayment(self):
         
-        sdk = mercadopago.SDK('TEST-')
+        sdk = mercadopago.SDK('')
         request_options = mercadopago.config.RequestOptions()
         request_options.custom_headers = {
             'x-idempotency-key': '<SOME_UNIQUE_VALUE>'
         }
         
         preference_data = {
-            "back_urls": {
-                "success": "https://www.tu-sitio/success",
-                "failure": "https://www.tu-sitio/failure",
-                "pending": "https://www.tu-sitio/pendings"
-            },
-            "auto_return": "approved",
             "items": [
                 {
                 "title": f"Pagamento {self.description}",
