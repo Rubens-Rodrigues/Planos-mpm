@@ -1,3 +1,8 @@
 from django.contrib import admin
+from . models import LeadsForm
 
-# Register your models here.
+@admin.register(LeadsForm)
+class LeadsFormAdmin(admin.ModelAdmin):
+    list_display=('nome','email','phone','leadsource')
+    search_fields=('nome',)
+    
