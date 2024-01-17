@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Category, Product
+from . models import Category, Product, Person
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -9,3 +9,8 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields={'slug':('name',)}
+
+@admin.register(Person)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display=('nome','document_number')
+    search_fields=('nome',)
