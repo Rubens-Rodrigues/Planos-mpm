@@ -8,11 +8,16 @@ from . forms import LeadsFomul
 
 def index(request):
     submitted = False
+    erro = ""
     if request.method == "POST":
         lead = LeadsFomul(request.POST)
         if lead.is_valid():
             lead.save()
             return HttpResponseRedirect('/?submitted=True#form')
+        else:
+            erro = lead.errors.items
+            print (erro)
+            return HttpResponseRedirect(f"/?erro={erro}#form")
     else:
         lead = LeadsFomul
         if 'submitted' in request.GET:
@@ -26,7 +31,8 @@ def index(request):
         'categories':categories,
         'title': 'Positive-se Mulher',
         'form': LeadsFomul,
-        'submitted': submitted
+        'submitted': submitted,
+        'erro': erro,
     }
     
     return render(request, 'home.html', context)
