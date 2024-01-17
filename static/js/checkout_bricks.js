@@ -1,4 +1,4 @@
-const mp = new MercadoPago('TEST-7a27f582-9905-4ba0-aefa-9d3db52a293d', {
+const mp = new MercadoPago('TEST-0b6909dd-8d13-4f55-add2-33387fbf9ce8', {
     locale: 'pt-BR'
 });
 const csrfmiddlewaretoken = document.querySelector('input[name=csrfmiddlewaretoken]').value
@@ -12,10 +12,10 @@ const item = [{
     title: productName,
 }]
 
-
 // csrfmiddlewaretoken: csrfmiddlewaretoken,
 
 const renderCardPaymentBrick = async (bricksBuilder) => {
+
     const settings = {
         initialization: {
             amount: amount, // valor total a ser pago
@@ -82,8 +82,11 @@ const renderCardPaymentBrick = async (bricksBuilder) => {
                         },
                         body: JSON.stringify(body)
                     })
-                        .then((response) => {
-                            // receber o resultado do pagamento
+                        .then((response) => response.json()) //2
+                        .then((id) => {
+                            id_payment = String(Object.values(id))
+                            url = '/payment?id_payment='+id_payment
+                            location.replace(url)
                             resolve();
                         })
                         .catch((error) => {
