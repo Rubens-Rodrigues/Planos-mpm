@@ -1,7 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
 @font-face {
   font-family: 'Nikoovers';
   src: url('../fonts/Nikoovers-GORam.ttf') format('truetype');
@@ -27,6 +23,11 @@ html {
   margin: 0;
   box-sizing: border-box;
   font-family: 'NexaRegular';
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -217,6 +218,64 @@ body {
   color: #ca60d6;
 }
 
+.topicos {
+  height: 500px;
+  background-color: #eedaf0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 20px;
+}
+
+.topicos h2 {
+  font-size: 32px;
+  font-family: 'NexaBold';
+}
+
+.topicos>div:last-child {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.topicos ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.topicos ul li {
+  background-color: #FCEBFE;
+  list-style: none;
+  width: 500px;
+  text-align: center;
+  padding: 15px 0;
+  border-radius: 20px;
+  font-family: 'NexaBold';
+  font-size: 18px;
+  box-shadow: 0 0 10px 0;
+  transition: all .2s ease-in-out;
+}
+
+.topicos ul li:hover {
+  scale: 1.03;
+}
+
+.encontros {
+  background-color: #ca60d6;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.encontros h2 {
+  font-size: 32px;
+  color: #fff;
+  font-family: 'NexaBold';
+  margin-bottom: 40px;
+}
+
 .flores {
   position: absolute;
   width: 300px !important;
@@ -390,12 +449,19 @@ body {
   height: 90vh;
   background-color: #FCEBFE;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
+.form-img {
+  height: 100%;
+  position: relative;
+}
+
 .form-img img {
-  width: 455px;
+  width: 480px;
+  position: absolute;
+  bottom: 0;
 }
 
 .div-form {
@@ -424,14 +490,14 @@ body {
   margin-bottom: 10px;
 }
 
-.div-form form input{
+.div-form form input {
   width: 100%;
   padding: 6px;
   border: 1px solid #eedaf0;
   outline-color: #ca60d6;
 }
 
-.div-form form input[type='submit']{
+.div-form form input[type='submit'] {
   margin-top: 10px;
   background-color: #ca60d6;
   color: #fff;
@@ -459,7 +525,8 @@ body {
 
 footer {
   height: 250px;
-  background: linear-gradient(to right, #874491, #ca60d6);  display: flex;
+  background: linear-gradient(to right, #874491, #ca60d6);
+  display: flex;
   justify-content: space-around;
   align-items: center;
   color: #fff;
@@ -475,6 +542,36 @@ footer>div:last-child {
 footer img {
   width: 130px;
   margin-top: -30px;
+}
+
+
+/* Page checkout */
+.container-checkout {
+  display: flex;
+  flex-direction: row;
+}
+
+.description-form {
+  width: 30%;
+  height: 500px;
+  background-color: #eedaf0;
+  border-radius: 6px;
+  box-shadow: 0 0 10px 0;
+}
+
+.description-form h3 {
+  font-size: 26px;
+}
+
+.description-form h2 {
+  margin-top: 40px;
+  font-size: 40px;
+  font-family: 'NexaBold';
+}
+
+.description-form .sacola {
+  width: 200px;
+  opacity: .8;
 }
 
 
@@ -591,7 +688,7 @@ footer img {
     width: 350px;
     margin-bottom: -8px;
   }
-  
+
   footer {
     text-align: center;
     flex-direction: column;
@@ -603,5 +700,27 @@ footer img {
   footer>div:last-child {
     flex-direction: column;
     align-items: center;
+  }
+
+  .container-checkout {
+    flex-direction: column;
+  }
+
+  .description-form {
+    width: 100%;
+    height: 400px;
+  }
+
+  .description-form h3 {
+    font-size: 26px;
+  }
+
+  .description-form h2 {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  .description-form .sacola {
+    width: 120px;
   }
 }
