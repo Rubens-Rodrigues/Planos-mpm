@@ -14,8 +14,7 @@ class LeadsFomul(ModelForm):
         }
         widgets = {
             'nome': forms.TextInput(attrs={'placeholder': 'Seu nome', 'class':'lead-form'}),
-            'email': forms.TextInput(attrs={'placeholder': 'Seu melhor e-mail'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Seu Whatsapp - (99) 99999-9999'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Seu melhor e-mail'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Seu Whatsapp - (99) 9999-9999', 'pattern': '[0-9]{2} [0-9]{5}-[0-9]{4}', 'title': 'Informe um número de telefone válido'}),
             'leadsource': forms.TextInput(attrs={'type': 'hidden', 'value': 'Landing Page'}),
         }
-    

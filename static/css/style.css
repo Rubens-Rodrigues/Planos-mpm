@@ -484,6 +484,7 @@ body {
   gap: 5px;
   align-items: center;
   padding: 40px 20px;
+  position: relative;
 }
 
 .div-form span {
@@ -517,10 +518,17 @@ body {
 
 .submitted {
   width: 100%;
-  background-color: aquamarine;
+  height: 100%;
+  font-size: 30px;
   border-radius: 0%;
   padding: 8px 0;
-  color: #373737;
+  color: #ca60d6;
+  font-family: 'NexaBold';
+  background-color: #FCEBFE;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
@@ -542,6 +550,81 @@ footer>div:last-child {
 footer img {
   width: 130px;
   margin-top: -30px;
+}
+
+
+/* Page Boas Vindas */
+.boas-vindas, .negado {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to left, #874491, #ca60d6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  box-sizing: border-box; 
+  font-size: 22px;
+  text-align: center;
+}
+
+.boas-vindas .flor {
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: 300px;
+  height: auto;
+  transform: rotate(-90deg);
+}
+
+.boas-vindas h1 {
+  font-size: 48px;
+  font-family: 'NexaBold';
+  margin-bottom: 60px;
+}
+
+.negado h1 {
+  font-size: 48px;
+  font-family: 'NexaBold';
+  margin-bottom: 40px;
+  margin-top:  20px;
+}
+
+.boas-vindas p {
+  width: 900px;
+  margin-bottom: 30px;
+
+}
+
+.boas-vindas a {
+  border: 2px solid #FCEBFE;
+  padding: 20px 30px;
+  color: #FCEBFE;
+  font-family: 'NexaBold';
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.boas-vindas a:hover {
+  background-color: #FCEBFE;
+  color: #874491;
+}
+
+.boas-vindas .check {
+  width: 250px;
+}
+
+.negado .check {
+  width: 150px;
+  margin-top: 60px;
+}
+
+.logoBoasVindas {
+  width: 150px;
+  position: absolute;
+  bottom: 10px;  
 }
 
 

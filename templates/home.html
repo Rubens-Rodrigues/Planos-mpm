@@ -199,19 +199,20 @@
   <div class="div-form">
     <img src="/static/imgs/positive-se_logo.png" alt="" />
 
-      <form action="" method="POST">
-        {% csrf_token %}
-        <span>Inscreva-se e receba novidades e ofertas gratuitamente</span>
-        {% if submitted %}
-          <span class="submitted">Formulário enviado</span>
-        {% endif %}
-        {{ form.nome.as_field_group }}
-        {{ form.email.as_field_group }}
-        {{ form.phone.as_field_group }}
-        {{ form.leadsource.as_field_group }}
-        <input type="submit" class="btn" value="ENVIAR	" />
-      </form>
-    </div>
-  </section>
-  <script src="/static/js/script.js"></script>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <span>Inscreva-se e receba novidades e ofertas gratuitamente</span>
+      {% if submitted %}
+      <span class="submitted">Dados enviados!</span>
+      {% endif %}
+      {{ form.nome.as_field_group }}
+      {{ form.email.as_field_group }}
+      {{ form.phone.as_field_group }}
+      {{ form.leadsource.as_field_group }}
+      <input type="submit" class="btn" value="ENVIAR	" />
+    </form>
+  </div>
+</section>
+
+<script src="/static/js/script.js"></script>
 {% endblock %}
