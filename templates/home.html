@@ -156,8 +156,16 @@
       <form action="" method="POST">
         {% csrf_token %}
         <span>Inscreva-se e receba novidades e ofertas gratuitamente</span>
+
         {% if submitted %}
           <span class="submitted">Formulário enviado</span>
+        {% endif %}
+        {% if form.errors %}
+          {% for field in form %}
+            {% for error in field.errors %}
+              {{ error|escape }}
+            {% endfor %}
+          {% endfor %}
         {% endif %}
         {{ form.nome.as_field_group }}
         {{ form.email.as_field_group }}
