@@ -38,18 +38,40 @@ def process_payment(request):
         if 'id' in response_payment:
             response_data['id'] = response_payment['id']
             id_payment=response_payment['id']
+            status_payment = response_payment['status']
         else: 
             response_data['id'] = ""
             id_payment=""
+            status_payment = "error"
         
-        client = Person(nome=email, email=email, document_number=identification_number, document_type=identification_type)
-        client_save = client.save()
-        print(client_save)
-        order = Order(product=product, client=client_save, payment_method=payment_method, 
-                      payed_status=response_payment['status'], installments=response_payment['installments'],
-                      id_checkout_payment=id_payment, amount_payed=response_payment['transaction_details']['total_paid_amount'],
-                      date_payment=response_payment['date_created'], last_for_digits_card=response_payment['card']['last_four_digits'])
-        order.save()
+        
+        client, created_person = Person.objects.get_or_create(nome=email, email=email, document_number=identification_number, 
+                            document_type=identification_type)
+        if created_person:
+            print("CLiente criado na base de dados")
+        else:
+            print("Cliente já criado na base de dados")
+        # except:
+        #     client = Person(nome=email, email=email, document_number=identification_number, 
+        #                     document_type=identification_type).save()    
+            
+        try: 
+            order, created_order = Order.objects.get_or_create(product=product, client=client, payment_method=payment_method, 
+                        payed_status=status_payment, installments=installments,
+                        id_checkout_payment=id_payment, 
+                        amount_payed=response_payment['transaction_details']['total_paid_amount'],
+                        date_payment=response_payment['date_created'], 
+                        last_for_digits_card=response_payment['card']['last_four_digits'])
+            # order.save()
+            if created_order:
+                print(f"Pedido já criado na base de dados -> {order}")
+            else:
+                print(f"Cliente já criado na base de dados -> {order}")
+                
+        except Exception as err:
+            print(f"Pagamento não registrado no banco de dados: --> {err}")
+            if response_payment['status'] == 423:
+                print("Erro 423, pagamento já realizado há alguns minutos")
 
         return HttpResponse(json.dumps(response_data), content_type="application/json")
     else:

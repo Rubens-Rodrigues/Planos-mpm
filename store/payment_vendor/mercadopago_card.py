@@ -50,16 +50,12 @@ class MercadoPagoPayment():
             }
         }
         
-        # try:
         payment_response = self.sdk.payment().create(payment_data, request_options)
         payment_preference = self.sdk.preference().create(preference_data)
         payment = payment_response["response"]
         print("status =>", payment["status"])
         print("additional info =>", payment_preference['status'])
-        print("Object", payment)
+        # print("Object", payment)
         return payment
-        # except:
-        #     print(f"Algo deu errado com o pagamento, status do pagamento { payment_response }")
-        #     return "Erro pagamento"
         
         
