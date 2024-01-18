@@ -117,8 +117,7 @@
       <h3>R${{ product.price_recurency }} */{{ product.type_recurency }}</h3>
       <p>{{ product.observation }}</p>
       <ul>{{ product.description|safe }}</ul>
-      <a class="btn comprar-btn" class="comprar-btn" href="{% url 'checkout' product.id %}" target="_blank"
-        class="btn btn-primary">Comprar</a>
+      <a class="btn comprar-btn" class="comprar-btn" href="{% url 'checkout' product.id %}" class="btn btn-primary">Comprar</a>
       {% comment %} <button class="comprar-btn" onclick="{% url 'checkout' product.id %}" data-amount="967"
         data-plan="basico">COMPRAR</button> {% endcomment %}
     </div>

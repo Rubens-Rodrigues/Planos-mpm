@@ -49,7 +49,7 @@ const renderCardPaymentBrick = async (bricksBuilder) => {
                 style: {
                     theme: 'default',
                     customVariables: {
-                        formBackgroundColor: '#e9e9e9',
+                        formBackgroundColor: '##eedaf0',
                         // baseColor: 'aquamarine',
                     },
                     texts: {

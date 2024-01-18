@@ -29,7 +29,7 @@ class Person(models.Model):
     nickname=models.CharField(max_length=15, verbose_name="Apelido")  
     email=models.EmailField(max_length=200, null=False, blank=False, verbose_name="E-mail")
     phone=models.CharField(max_length=16, verbose_name="Celular")
-    document_number=models.CharField(max_length=20, default="", unique=True, null=False, verbose_name="Numero documento")
+    document_number=models.CharField(max_length=20, default="", unique=True, verbose_name="Numero documento")
     document_type=models.CharField(max_length=5, default="CPF", null=False, verbose_name="Tipo documento")
     location=models.CharField(max_length=100, verbose_name="Endereço")
     country=models.CharField(max_length=50, verbose_name="Pais")

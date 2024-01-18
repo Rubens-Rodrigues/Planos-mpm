@@ -5,12 +5,14 @@ from .payment_vendor.mercadopago_card import MercadoPagoPayment
 import logging
 import json
 
-logger = logging.getLogger("store.views")
+
+logger = logging.getLogger(__name__)
 
 def checkout(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     context = {
-        'product': product
+        'product': product,
+        'title': f"Positive-se Mulher| Pagamento {product.name}"
     }
     return render(request, 'checkout_bricks.html', context)
 
@@ -45,15 +47,12 @@ def process_payment(request):
             status_payment = "error"
         
         
-        client, created_person = Person.objects.get_or_create(nome=email, email=email, document_number=identification_number, 
+        client, created_person = Person.objects.get_or_create(nome=email, email=email, 
                             document_type=identification_type)
         if created_person:
             print("CLiente criado na base de dados")
         else:
-            print("Cliente já criado na base de dados")
-        # except:
-        #     client = Person(nome=email, email=email, document_number=identification_number, 
-        #                     document_type=identification_type).save()    
+            print("Cliente já criado na base de dados")  
             
         try: 
             order, created_order = Order.objects.get_or_create(product=product, client=client, payment_method=payment_method, 
@@ -64,21 +63,20 @@ def process_payment(request):
                         last_for_digits_card=response_payment['card']['last_four_digits'])
             # order.save()
             if created_order:
-                print(f"Pedido já criado na base de dados -> {order}")
+                logger.warning("Pedido cadastrado na base: %s", order)
             else:
-                print(f"Cliente já criado na base de dados -> {order}")
+                logger.warning('Pedido já existente na base de dados -> %s', order)
                 
         except Exception as err:
-            print(f"Pagamento não registrado no banco de dados: --> {err}")
+            logger.warning("Pagamento não registrado no banco de dados: --> %s", err)
             if response_payment['status'] == 423:
-                print("Erro 423, pagamento já realizado há alguns minutos")
+                logger.warning("Erro 423, pagamento já realizado há alguns minutos")
 
         return HttpResponse(json.dumps(response_data), content_type="application/json")
     else:
         return render(request, '404.html')
 
 def payment(request):
-    print(request.GET['id_payment'])
     if 'id_payment' in request.GET:
         status_detail ={
             'Accredited': 'credited payment.',
@@ -99,7 +97,6 @@ def payment(request):
         }
         payment_id = request.GET['id_payment']
         payment = MercadoPagoPayment().getPayment(payment_id)
-        print(payment)
         if payment['status'] == 200:
             context = {
                 'status_payment': payment['response']['status'],
@@ -112,6 +109,7 @@ def payment(request):
                 'product_payed': payment['response']['description'],
                 'payment_method': payment['response']['payment_method']['type'],
                 'installments': payment['response']['installments'],
+                'title': f"Positive-se Mulher| Pagamento id {payment_id}"
             }
         else:
             

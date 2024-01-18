@@ -55,7 +55,6 @@ class MercadoPagoPayment():
         payment = payment_response["response"]
         print("status =>", payment["status"])
         print("additional info =>", payment_preference['status'])
-        # print("Object", payment)
         return payment
         
         

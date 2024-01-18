@@ -1,45 +1,33 @@
-<!-- {{ status_payment }}
-<br>{{ email }}
-<br>{{ document_number }}
-<br>{{ document_type }}
-<br>{{ last_for_digits_card }}
-<br>{{ date_payment }}
-<br>{{ amount_payed }}
-<br>{{ product_payed }}
-<br>{{ payment_method }}
-<br>{{ installments }}
-<br>{{ email }} -->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/style.css">
-  <title>Document</title>
-</head>
-
-<body>
-  <div class="boas-vindas">
-    <img class="flor" src="../static/imgs/flores-neg.png" alt="">
-    <img class="check" src="../static//imgs/check.png" alt="Check">
-    <h1>Pagamento Finalizado</h1>
-    <p>Parabens, você agora faz parte da comunidade de empreendedoras que mais cresce. Positive-se Mulher.</p> <img
-      class="logoBoasVindas" src="../static/imgs/positive-se_branca.png" alt="LOGO">
-    <h4>Enviaremos para seu email cadastrado um link para criar a sua senha.</h4>
-    <a href="https://mpm.positiveempresarial.com.br" target="_blank">Acesse o portal aqui</a>
-  </div>
-
-  <!-- <div class="boas-vindas negado">
-    <img class="flor" src="../static/imgs/flores-neg.png" alt="">
-    <img class="check" src="../static//imgs/delete.png" alt="Check">
-    <h1>Pagamento Recusado</h1>
-    <p>Verifique com sua operadora de Cartão e tente novamente.</p>
-    <img class="logoBoasVindas" src="../static/imgs/positive-se_branca.png" alt="LOGO">
-    <a href="https://planos-mpm.positiveempresarial.com.br" target="_blank">Voltar para o site</a>
-  </div> -->
-</body>
-
-</html>
+{% extends 'base/_index.html' %}
+{% block content %}
+  {% load static %}
+  {% if status_payment == 'approved' or status_payment == 'authorized' %}
+    <div class="boas-vindas">
+      <img class="flor" src="{% static 'imgs/flores-neg.png' %}" alt="" />
+      <img class="check" src="{% static 'imgs/check.png' %}" alt="Check" />
+      <h1>Pagamento Finalizado</h1>
+      <p>Parabens, você agora faz parte da comunidade de empreendedoras que mais cresce. Positive-se Mulher.</p> <img class="logoBoasVindas" src="{% static 'imgs/positive-se_branca.png' %}" alt="LOGO" />
+      <h4>Enviaremos para seu email {{ email }} um link para criar a sua senha.</h4>
+      <a href="https://mpm.positiveempresarial.com.br" target="_blank">Acesse o portal aqui</a>
+    </div>
+  {% elif status_payment == 'in_process' %}
+    <h1>Pagamento está sendo processado</h1>
+    <p>O pagamento está sendo analisado em breve retornaremos .</p> <img class="logoBoasVindas" src="{% static 'imgs/positive-se_branca.png' %}" alt="LOGO" />
+    <h4>Enviaremos para seu email {{ email }} um link para criar a sua senha assim que finalizar o pagamento.</h4>
+  {% elif status_payment == 'Pagamento não encontrado' %}
+    <div class="boas-vindas negado">
+      <h1>Pagamento não encontrado</h1>
+      <p>Verifique se você foi redirecionado corretamente.</p>
+      <a href="{% url 'index' %}">Acessar página incial</a>
+    </div>
+  {% else %}
+    <div class="boas-vindas negado">
+      <img class="flor" src="{% static 'imgs/flores-neg.png' %}" alt="" />
+      <img class="check" src="{% static '/imgs/delete.png' %}" alt="Check" />
+      <h1>Pagamento Recusado</h1>
+      <p>Verifique com sua operadora de Cartão e tente novamente.</p>
+      {% comment %} <img class="logoBoasVindas" src="{% static 'imgs/positive-se_branca.png' %}" alt="LOGO" /> {% endcomment %}
+      <a href="{% url 'index' %}">Tentar comprar novamente</a>
+    </div>
+  {% endif %}
+{% endblock %}
