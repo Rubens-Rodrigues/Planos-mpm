@@ -5,12 +5,14 @@ from .payment_vendor.mercadopago_card import MercadoPagoPayment
 import logging
 import json
 
-logger = logging.getLogger("store.views")
+
+logger = logging.getLogger(__name__)
 
 def checkout(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     context = {
-        'product': product
+        'product': product,
+        'title': f"Positive-se Mulher| Pagamento {product.name}"
     }
     return render(request, 'checkout_bricks.html', context)
 
@@ -38,25 +40,43 @@ def process_payment(request):
         if 'id' in response_payment:
             response_data['id'] = response_payment['id']
             id_payment=response_payment['id']
+            status_payment = response_payment['status']
         else: 
             response_data['id'] = ""
             id_payment=""
+            status_payment = "error"
         
-        client = Person(nome=email, email=email, document_number=identification_number, document_type=identification_type)
-        client_save = client.save()
-        print(client_save)
-        order = Order(product=product, client=client_save, payment_method=payment_method, 
-                      payed_status=response_payment['status'], installments=response_payment['installments'],
-                      id_checkout_payment=id_payment, amount_payed=response_payment['transaction_details']['total_paid_amount'],
-                      date_payment=response_payment['date_created'], last_for_digits_card=response_payment['card']['last_four_digits'])
-        order.save()
+        
+        client, created_person = Person.objects.get_or_create(nome=email, email=email, 
+                            document_type=identification_type)
+        if created_person:
+            print("CLiente criado na base de dados")
+        else:
+            print("Cliente já criado na base de dados")  
+            
+        try: 
+            order, created_order = Order.objects.get_or_create(product=product, client=client, payment_method=payment_method, 
+                        payed_status=status_payment, installments=installments,
+                        id_checkout_payment=id_payment, 
+                        amount_payed=response_payment['transaction_details']['total_paid_amount'],
+                        date_payment=response_payment['date_created'], 
+                        last_for_digits_card=response_payment['card']['last_four_digits'])
+            # order.save()
+            if created_order:
+                logger.warning("Pedido cadastrado na base: %s", order)
+            else:
+                logger.warning('Pedido já existente na base de dados -> %s', order)
+                
+        except Exception as err:
+            logger.warning("Pagamento não registrado no banco de dados: --> %s", err)
+            if response_payment['status'] == 423:
+                logger.warning("Erro 423, pagamento já realizado há alguns minutos")
 
         return HttpResponse(json.dumps(response_data), content_type="application/json")
     else:
         return render(request, '404.html')
 
 def payment(request):
-    print(request.GET['id_payment'])
     if 'id_payment' in request.GET:
         status_detail ={
             'Accredited': 'credited payment.',
@@ -77,7 +97,6 @@ def payment(request):
         }
         payment_id = request.GET['id_payment']
         payment = MercadoPagoPayment().getPayment(payment_id)
-        print(payment)
         if payment['status'] == 200:
             context = {
                 'status_payment': payment['response']['status'],
@@ -90,6 +109,7 @@ def payment(request):
                 'product_payed': payment['response']['description'],
                 'payment_method': payment['response']['payment_method']['type'],
                 'installments': payment['response']['installments'],
+                'title': f"Positive-se Mulher| Pagamento id {payment_id}"
             }
         else:
             

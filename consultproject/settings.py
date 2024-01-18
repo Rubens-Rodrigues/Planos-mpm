@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-@v2uo&$@w35q_5#ld*l+ddv5bq#5g6ovmvyk&^=s1xm%wn8!7g"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True    
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['planos-mpm.positiveempresarial.com.br', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://planos-mpm.positiveempresarial.com.br', 'http://127.0.0.1']
 
 # Application definition
 
@@ -56,9 +58,9 @@ ROOT_URLCONF = "consultproject.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates"],
+        "DIRS": [os.path.join(BASE_DIR,"templates")],
         "APP_DIRS": True,
-        "OPTIONS": {
+        "OPTIONS": {    
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
@@ -86,7 +88,7 @@ DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.mysql",
 #         "OPTIONS": {
-#             "read_default_file": "my.cnf",
+#             "read_default_file": os.path.join(BASE_DIR,"my.cnf"),
 #         },
 #     }
 # }
@@ -124,7 +126,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = "static/"
 
 # Default primary key field type
@@ -133,5 +135,5 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / "static",
 ]
