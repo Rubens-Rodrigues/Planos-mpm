@@ -7,8 +7,8 @@ TITLE_CHOICES = {
 
 class LeadsForm(models.Model):
     nome=models.CharField(max_length=100, null=False, blank=False)
-    email=models.EmailField(max_length=200, null=False, blank=False, verbose_name="E-mail")
-    phone=models.CharField(max_length=16, blank=False, unique=True, verbose_name="Celular")
+    email=models.EmailField(max_length=200, null=False, unique=True, blank=False, verbose_name="E-mail")
+    phone=models.CharField(max_length=16, blank=False, verbose_name="Celular")
     date_created=models.DateField(auto_now=True, verbose_name="Data de cadastro")
     leadsource=models.CharField(max_length=20,verbose_name="Origem cadastro", choices=TITLE_CHOICES)
 
