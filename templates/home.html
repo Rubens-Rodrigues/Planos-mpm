@@ -201,10 +201,13 @@
     <form action="" id="lead" method="POST">
       {% csrf_token %}
       <span>Inscreva-se e receba novidades e ofertas gratuitamente</span>
-      <span id="submitted"></span>      
+      <span id="submitted"></span>
       {{ form.nome.as_field_group }}
+      <span id="nome" class="email"></span>
       {{ form.email.as_field_group }}
+      <span id="email" class="email"></span>
       {{ form.phone.as_field_group }}
+      <span id="phone" class="email"></span>
       {{ form.leadsource.as_field_group }}
       <input type="submit" class="btn" value="ENVIAR	" />
     </form>
