@@ -531,6 +531,13 @@ body {
   align-items: center;
 }
 
+.email {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: red;
+}
+
 footer {
   height: 250px;
   background: linear-gradient(to right, #874491, #ca60d6);

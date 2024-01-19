@@ -45,9 +45,8 @@ document.getElementById('lead').addEventListener('submit', function(event) {
             document.getElementById('submitted').classList.add('submitted');
         } else if (xhr.status == 409) {
             // Erro na requisição
-            console.error('Erro ao enviar o formulário. Código do status:', xhr.status);
-            document.getElementById('submitted').textContent = 'Email já cadastrado, tente um novo email';
-            document.getElementById('submitted').classList.add('submitted');
+            document.getElementById('email').textContent = 'Email já cadastrado, tente um novo email';
+            // document.getElementById('submitted').classList.add('submitted');
         } else {
             console.error('Erro ao enviar o formulário. Código do status:', xhr.status);
             document.getElementById('submitted').textContent = 'Erro ao enviar o formulário. Por favor, tente novamente.';
