@@ -17,7 +17,55 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
 document.getElementById('id_phone').addEventListener('input', function (e) {
     var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
     e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
   });
+
+// Implementação do envio ajax do formulario
+document.getElementById('lead').addEventListener('submit', function(event) {
+    // Impedir o envio padrão do formulário
+    event.preventDefault();
+
+    // Obter os dados do formulário
+    var formData = new FormData(this);
+
+    // Criar uma instância do objeto XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    // Configurar a requisição
+    xhr.open('POST', '/send_lead', true);
+
+    // Configurar a função de retorno de chamada
+    xhr.onload = function() {
+        if (xhr.status == 202) {
+            // Sucesso na requisição
+            document.getElementById('submitted').textContent = 'Formulário enviado com sucesso!';
+            document.getElementById('submitted').classList.add('submitted');
+        } else if (xhr.status == 409) {
+            // Erro na requisição
+            console.error('Erro ao enviar o formulário. Código do status:', xhr.status);
+            document.getElementById('submitted').textContent = 'Email já cadastrado, tente um novo email';
+            document.getElementById('submitted').classList.add('submitted');
+        } else {
+            console.error('Erro ao enviar o formulário. Código do status:', xhr.status);
+            document.getElementById('submitted').textContent = 'Erro ao enviar o formulário. Por favor, tente novamente.';
+            document.getElementById('submitted').classList.add('submitted');
+        }
+    };
+
+    // Configurar a função de tratamento de erro
+    xhr.onerror = function() {
+        console.error('Erro de rede ao enviar o formulário.');
+        document.getElementById('submitted').textContent = 'Erro de rede ao enviar o formulário. Por favor, verifique sua conexão e tente novamente.';
+    };
+
+    window.onload = function() {
+        hideOptionPhoto();
+    };
+
+    // Enviar a requisição com os dados do formulário
+    xhr.send(formData);
+});
+
