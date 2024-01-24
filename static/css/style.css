@@ -664,8 +664,151 @@ footer img {
   opacity: .8;
 }
 
+/* Page pre-inscricao */
+.header-pre-inscricao {
+  background: #fff;
+  text-align: center;
+}
 
-@media (max-width: 600px) {
+.header-pre-inscricao img {
+  width: 180px;
+}
+
+.pre-inscricao {
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(to right, #eaeaff, #c9c9ff);
+  height: 70vh;
+  padding: 20px;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pre-inscricao img {
+  max-width: 100%;
+}
+
+.pre-inscricao h3 {
+  color: #1c1c1c;
+  line-height: 0;
+}
+
+.pre-inscricao h1 {
+  width: 500px;
+  color: #ca60d6;
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.pre-inscricao p {
+  width: 800px;
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.pre-inscricao strong {
+  color: #1c1c1ccc;
+}
+
+.pre-inscricao form button {
+  background: #ca60d6;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pre-inscricao form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+.pre-inscricao form input {
+  padding: 4px;
+  border: none;
+  border-radius: 6px;
+}
+
+.pre-inscricao form input:focus {
+  border: 1px solid #ca60d6;
+  outline: none;
+}
+
+/* Page Grupo whatsapp */
+.header-whatsapp {
+  background: #fff;
+  text-align: center;
+}
+
+.header-whatsapp img {
+  width: 180px;
+}
+
+.grupo-whatsapp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  background: linear-gradient(to right, #eaeaff, #c9c9ff);
+  height: 70vh;
+  padding: 20px;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.grupo-whatsapp>div {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.grupo-whatsapp h1 {
+  color: #ca60d6;
+  font-size: 40px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.grupo-whatsapp p {
+  width: 800px;
+  color: #666;
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+
+.grupo-whatsapp a {
+  text-decoration: none;
+  background: #1eac52;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 22px;
+  border: none;
+  border-radius:30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+}
+
+.grupo-whatsapp i img {
+  width: 30px;
+}
+
+
+@media (max-width: 680px) {
   .topo {
     flex-direction: column;
     height: auto;
@@ -812,5 +955,35 @@ footer img {
 
   .description-form .sacola {
     width: 120px;
+  }
+
+
+  .pre-inscricao {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    gap: 60px;
+    border-radius: 0 40px 40px 0;
+  }
+
+  .pre-inscricao h1 {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .pre-inscricao p,
+  .pre-inscricao h3{
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .pre-inscricao img {
+    margin: 0 auto;
+  }
+
+  .grupo-whatsapp>div, .grupo-whatsapp p {
+    width: 100%;
+    height: auto;
   }
 }
