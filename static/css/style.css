@@ -229,7 +229,7 @@ body {
   padding: 20px;
 }
 
-.topicos h2 {
+.topicos>div h2 {
   font-size: 32px;
   font-family: 'NexaBold';
 }
@@ -263,13 +263,29 @@ body {
   scale: 1.03;
 }
 
-.encontros {
+.depoimentos {
   background-color: #ca60d6;
   padding: 40px 20px;
   text-align: center;
 }
 
-.encontros h2 {
+.depoimentos>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.depoimentos>div video {
+  width: 320px;
+  height: auto;
+}
+
+.depoimentos>div img {
+  width: 60%;
+}
+
+.depoimentos h2 {
   font-size: 32px;
   color: #fff;
   font-family: 'NexaBold';
@@ -561,7 +577,8 @@ footer img {
 
 
 /* Page Boas Vindas */
-.boas-vindas, .negado {
+.boas-vindas,
+.negado {
   height: 100vh;
   width: 100%;
   background: linear-gradient(to left, #874491, #ca60d6);
@@ -569,7 +586,7 @@ footer img {
   flex-direction: column;
   align-items: center;
   color: #fff;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   font-size: 22px;
   text-align: center;
 }
@@ -593,7 +610,7 @@ footer img {
   font-size: 48px;
   font-family: 'NexaBold';
   margin-bottom: 40px;
-  margin-top:  20px;
+  margin-top: 20px;
 }
 
 .boas-vindas p {
@@ -631,7 +648,7 @@ footer img {
 .logoBoasVindas {
   width: 150px;
   position: absolute;
-  bottom: 10px;  
+  bottom: 10px;
 }
 
 
@@ -671,33 +688,36 @@ footer img {
 }
 
 .header-pre-inscricao img {
-  width: 180px;
+  width: 150px;
 }
 
 .pre-inscricao {
   display: flex;
   justify-content: space-around;
   background: linear-gradient(to right, #eaeaff, #c9c9ff);
-  height: 70vh;
+  height: auto;
+  width: 100%;
   padding: 20px;
   border-radius: 0 0 40px 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pre-inscricao img {
-  max-width: 100%;
+  width: 600px;
+  height: auto;
 }
 
 .pre-inscricao h3 {
   color: #1c1c1c;
-  line-height: 0;
+  font-family: 'NexaBold';
+  margin-bottom: 4px;
 }
 
 .pre-inscricao h1 {
-  width: 500px;
+  width: 600px;
   color: #ca60d6;
   font-size: 22px;
-  line-height: 1.6;
+  font-family: 'NexaBold';
   margin-bottom: 20px;
   padding: 8px;
   border-radius: 8px;
@@ -705,36 +725,47 @@ footer img {
 }
 
 .pre-inscricao p {
-  width: 800px;
+  width: 600px;
   color: #666;
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
+.pre-inscricao .primeiro-p {
+  font-size: 30px;
+  font-family: 'NexaBold';
+  line-height: 1;
+}
+
 .pre-inscricao strong {
-  color: #1c1c1ccc;
+  color: #ca60d6;
+  font-family: 'NexaBold';
+}
+
+.pre-inscricao p b {
+  font-family: 'NexaBold';
 }
 
 .pre-inscricao form button {
   background: #ca60d6;
   color: #fff;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'NexaBold';
 }
 
 .pre-inscricao form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 300px;
+  width: 400px;
 }
 
 .pre-inscricao form input {
-  padding: 4px;
+  padding: 6px;
   border: none;
   border-radius: 6px;
 }
@@ -751,7 +782,7 @@ footer img {
 }
 
 .header-whatsapp img {
-  width: 180px;
+  width: 150px;
 }
 
 .grupo-whatsapp {
@@ -760,7 +791,8 @@ footer img {
   justify-content: center;
   align-items: start;
   background: linear-gradient(to right, #eaeaff, #c9c9ff);
-  height: 70vh;
+  height: auto;
+  min-height: 80vh;
   padding: 20px;
   border-radius: 0 0 40px 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -774,7 +806,7 @@ footer img {
 .grupo-whatsapp h1 {
   color: #ca60d6;
   font-size: 40px;
-  line-height: 1.4;
+  font-family: 'NexaBold';
   margin-bottom: 20px;
   padding: 5px;
   border-radius: 8px;
@@ -784,7 +816,6 @@ footer img {
   width: 800px;
   color: #666;
   font-size: 22px;
-  line-height: 1.4;
   margin-bottom: 20px;
 }
 
@@ -795,12 +826,14 @@ footer img {
   color: #fff;
   padding: 15px 20px;
   font-size: 22px;
+  font-family: 'NexaBold';
   border: none;
-  border-radius:30px;
+  border-radius: 30px;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
-  width: 200px;
+  max-width: 350px;
 }
 
 .grupo-whatsapp i img {
@@ -872,6 +905,47 @@ footer img {
     width: 400px;
   }
 
+  .topicos {
+    height: auto;
+    padding-bottom: 80px;
+    text-align: center;
+  }
+
+  .topicos>div:last-child {
+    flex-direction: column;
+  }
+
+  .topicos ul li{
+    width: 100%;
+  }
+
+  .topicos>div h2 {
+    font-size: 20px;
+  }
+
+  .depoimentos {
+    background-color: #ca60d6;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .depoimentos>div {
+    flex-direction: column;
+
+  }
+  
+  .depoimentos>div video {
+    width: 300px;
+  }
+  
+  .depoimentos>div img {
+    width: 100%;
+  }
+  
+  .depoimentos h2 {
+    font-size: 22px;
+  }
+
   .cta {
     flex-direction: column;
     align-items: center;
@@ -918,8 +992,7 @@ footer img {
   }
 
   .form-img img {
-    width: 350px;
-    margin-bottom: -8px;
+    display: none;
   }
 
   footer {
@@ -963,27 +1036,51 @@ footer img {
     align-items: center;
     width: 90%;
     height: auto;
+    margin-bottom: 30px;
     gap: 60px;
     border-radius: 0 40px 40px 0;
   }
 
-  .pre-inscricao h1 {
-    font-size: 18px;
+  .pre-inscricao form {
     width: 100%;
   }
 
-  .pre-inscricao p,
-  .pre-inscricao h3{
-    width: 100%;
+  .pre-inscricao h1 {
     font-size: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .pre-inscricao .primeiro-p {
+    font-size: 20px;
+  }
+  .pre-inscricao p,
+  .pre-inscricao h3 {
+    width: 100%;
+    font-size: 14px;
   }
 
   .pre-inscricao img {
     margin: 0 auto;
+    width: 100%;
   }
 
-  .grupo-whatsapp>div, .grupo-whatsapp p {
+  .grupo-whatsapp>div,
+  .grupo-whatsapp p {
     width: 100%;
     height: auto;
+  }
+  
+  .grupo-whatsapp h1 {
+    font-size: 30px;
+  }
+  
+  .grupo-whatsapp p {
+    font-size: 18px;
+  }
+    
+  .grupo-whatsapp a {
+    width: 100%;
+    margin-top: 40px;
   }
 }
