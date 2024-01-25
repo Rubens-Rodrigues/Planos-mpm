@@ -27,17 +27,21 @@ def send_lead(request):
     erro = False
     if request.method == "POST":
         lead = LeadsFomul(request.POST)
-        try: 
-            lead.is_valid()
-            lead.save()
-            # return HttpResponseRedirect('/?submitted=True#form')
-            return HttpResponse(status=202)
+        valida_phone = validar_numero_telefone(request.POST['phone'])
+        if valida_phone:
+            try: 
+                lead.is_valid()
+                lead.save()
+                # return HttpResponseRedirect('/?submitted=True#form')
+                return HttpResponse(status=202)
 
-        except Exception as err:
-            erro = lead.errors.items
-            print (err)
-            # return HttpResponseRedirect(f"/?erro=True#form")
-            return HttpResponse(status=409)
+            except Exception as err:
+                erro = lead.errors.items
+                print (err)
+                # return HttpResponseRedirect(f"/?erro=True#form")
+                return HttpResponse(status=409)
+        else:
+            return HttpResponse(status=400)
     else:
         lead = LeadsFomul
         if 'submitted' in request.GET:

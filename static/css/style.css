@@ -688,7 +688,8 @@ footer img {
 }
 
 .header-pre-inscricao img {
-  width: 150px;
+  width: 300px;
+  padding: 30px;
 }
 
 .pre-inscricao {
@@ -714,9 +715,9 @@ footer img {
 }
 
 .pre-inscricao h1 {
-  width: 600px;
+  width: 560px;
   color: #ca60d6;
-  font-size: 22px;
+  font-size: 30px;
   font-family: 'NexaBold';
   margin-bottom: 20px;
   padding: 8px;
@@ -732,7 +733,7 @@ footer img {
 }
 
 .pre-inscricao .primeiro-p {
-  font-size: 30px;
+  font-size: 25px;
   font-family: 'NexaBold';
   line-height: 1;
 }
@@ -761,11 +762,12 @@ footer img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 400px;
+  width: 500px;
 }
 
 .pre-inscricao form input {
   padding: 6px;
+  height: 35px;
   border: none;
   border-radius: 6px;
 }

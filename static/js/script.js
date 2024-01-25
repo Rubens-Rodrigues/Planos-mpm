@@ -23,10 +23,6 @@ document.getElementById('id_phone').addEventListener('input', function (e) {
     e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
   });
 
-  document.getElementById('id_telefone').addEventListener('input', function (e) {
-    var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-    e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-  });
 
 // Implementação do envio ajax do formulario
 document.getElementById('lead').addEventListener('submit', function(event) {
@@ -52,6 +48,8 @@ document.getElementById('lead').addEventListener('submit', function(event) {
             // Erro na requisição
             document.getElementById('email').textContent = 'Email já cadastrado, tente um novo email';
             // document.getElementById('submitted').classList.add('submitted');
+        } else if (xhr.status == 400 ) {
+            document.getElementById('phone').textContent = 'Numero de telefone inválido';
         } else {
             console.error('Erro ao enviar o formulário. Código do status:', xhr.status);
             document.getElementById('submitted').textContent = 'Erro ao enviar o formulário. Por favor, tente novamente.';

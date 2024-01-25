@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="../static/imgs/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/static/imgs/favicon.ico" type="image/x-icon">
   <title>{{ title }}</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -17,21 +17,15 @@
 
 
   <section class="header-pre-inscricao">
-    <img src="/static/imgs/NomeMPM.png" alt="Logo" />
+    <img src="/static/imgs/positive-se_logo.png" alt="Logo" />
   </section>
 
   <section class="pre-inscricao">
     <div>
-      <h3>LANÇAMENTO</h3>
-      <h1>Programa MPM - Movimento Positive-se Mulher</h1>
+      <h1>Movimento Positive-se Mulher</h1>
       <p class="primeiro-p">
         Realize agora sua pré-inscrição no primeiro programa empresarial híbrido de Teresina e garanta <strong>ofertas exclusivas</strong>.
       </p>
-      <p>
-        Faça parte do mais novo programa da Positive Group Soluções Empresariais, onde você irá
-        compreender teorias e práticas essenciais para <b> impulsionar suas emoções positivas e seu negócio em 2024</b>.
-      </p>
-      <h4>FAÇA SUA PRÉ-INSCRIÇÃO.</h4>
       <br>
       <form method="POST" action="" id="form-pre-inscricao">
         {% csrf_token %}
