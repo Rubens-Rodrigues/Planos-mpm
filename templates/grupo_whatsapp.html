@@ -1,17 +1,35 @@
-{% extends 'base/_index.html' %}
 {% block content %}
-<section class="header-whatsapp">
-  <img src="/static/imgs/NomeMPM.png" alt="Logo">
-</section>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<section class="grupo-whatsapp">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../static/imgs/favicon.ico" type="image/x-icon">
+  <title>{{ title }}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
 
-  <div>
-    <h1>Parabens por realizar sua pré-inscrição no programa MPM - Movimento Positive-se Mulher</h1>
-    <p>
-      Clique no botão abaixo e entre no grupo exclusivo de lançamento e fique por dentro de todas as informações.
-    </p>
-    <a href="https://chat.whatsapp.com/IrLCZCY8cqa5JhNonp21Yp"><i><img src="/static/imgs/whatsapp.png" alt="Whatsapp"></i> Entrar no grupo</a>
-  </div>
-</section>
+<body>
+  <section class="header-whatsapp">
+    <img src="/static/imgs/NomeMPM.png" alt="Logo">
+  </section>
+
+  <section class="grupo-whatsapp">
+
+    <div>
+      <h1>Parabéns por realizar sua pré-inscrição no programa MPM - Movimento Positive-se Mulher</h1>
+      <p>
+        Clique no botão abaixo e entre no grupo exclusivo de lançamento e fique por dentro de todas as informações.
+      </p>
+      <a href="https://chat.whatsapp.com/IrLCZCY8cqa5JhNonp21Yp"><i><img src="/static/imgs/whatsapp.png"
+            alt="Whatsapp"></i> ENTRAR NO GRUPO</a>
+    </div>
+  </section>
+</body>
+
+</html>
 {% endblock %}

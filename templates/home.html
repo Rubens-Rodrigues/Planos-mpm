@@ -6,7 +6,7 @@
     <h1>Faça parte de um grupo seleto de empreendedoras.</h1>
     <hr />
     <p>Apoiar e inspirar mulheres a atingir seu máximo potencial em todas as áreas da vida e dos negócios.</p>
-    <a href="http://" target="_blank" rel="noopener noreferrer">SEJA UMA POSITIVA</a>
+    <a href="#planos">SEJA UMA POSITIVA</a>
   </div>
   <img src="/static/imgs/montagemCoracao.png" alt="Logo" />
 </section>
@@ -95,12 +95,18 @@
   </div>
 </section>
 
-<section class="encontros">
-  <h2>Confira um pouco dos encontros anteriores.</h2>
-  <img src="/static/imgs/img-quadro.PNG" alt="Imagem" />
-</section>
+{% comment %} <section class="depoimentos">
+  <h2>DEPOIMENTOS DE MULHERES TRANSFORMADAS.</h2>
+  <div>
+    <video controls >
+      <source src='~/Downloads/video.mp4' type="video/mp4" />
+      Seu navegador não suporta a tag de vídeo.
+    </video>
+    <img src="/static/imgs/depoimentos.png" alt="Imagem" />
+  </div>
+</section> {% endcomment %}
 
-<section class="planos">
+<section class="planos" id='planos'>
   <h3>Tudo o que você sempre quis para crescer ainda mais como empreendedora.</h3>
   {% for category in categories %}
   <p>{{ category.details }}</p>

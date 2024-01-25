@@ -24,8 +24,8 @@ class PreInscricaoForm(ModelForm):
         model = PreInscricao
         fields = ('__all__')
         labels = {
-            'nome': 'Seu nome*',
-            'telefone': 'Número de telefone*',
+            'nome': 'Seu nome',
+            'telefone': 'Número de telefone',
         }
         widgets = {
             'nome': forms.TextInput(attrs={'placeholder': 'Digite seu nome'}),
