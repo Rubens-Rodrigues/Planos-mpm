@@ -300,6 +300,7 @@ body {
   transform: rotate(180deg);
 }
 
+/* Css planos */
 .planos {
   background-color: #FCEBFE;
   text-align: center;
@@ -313,10 +314,17 @@ body {
 
 .planos-content {
   width: 100%;
+}
+
+.plano-anual, .plano-mensal {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
+}
+
+.plano-anual {
+  display: flex;
 }
 
 .plano {
@@ -329,12 +337,31 @@ body {
   background-color: #eedaf0;
   border-radius: 20px 20px 8px 8px;
   padding: 80px 10px;
-  border-top: 10px solid #874491;
+  border-top: 10px solid #ca60d6;
   box-shadow: 0 0 10px 0;
 }
 
-.plano1 {
-  border-top: 10px solid #ca60d6;
+.btn-planos-content {
+  background-color: #ccc;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.btn-planos-content  .btn {
+  background-color: #ccc;
+  border: none;
+  border-radius: 20px;
+  font-family: "NexaBold";
+  letter-spacing: 1px;
+  color: #666;
+  padding: 5px 60px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-planos-content  .btn.selected {
+  background-color: #ca60d6;
+  color: #fff;
 }
 
 .plano h2 {
