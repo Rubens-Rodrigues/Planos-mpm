@@ -4,17 +4,21 @@ from django.http import HttpResponseRedirect, HttpResponse
 from . forms import LeadsFomul, PreInscricaoForm
 from django.db import IntegrityError
 from . utils import validar_numero_telefone
+import logging
 
-
-# Create your views here.
+logger = logging.getLogger(__name__)
 
 def index(request):
     
-    products=Product.objects.filter(status=True).values()
+    products_anual=Product.objects.filter(status=True, category__name__icontains="anual").values()
+    products_mensal=Product.objects.filter(status=True, category__name__icontains="mensal").values()
     categories=Category.objects.all().order_by('name')
     
+    # logger.warning(products_anual)
+    
     context={
-        'products':products,
+        'products_anual':products_anual,
+        'products_mensal':products_mensal,
         'categories':categories,
         'title': 'Positive-se Mulher',
         'form': LeadsFomul,

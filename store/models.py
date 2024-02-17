@@ -18,6 +18,7 @@ class Product(models.Model):
     price_recurency=models.DecimalField(max_digits=6,decimal_places=2, verbose_name="Preço recorrente")
     type_recurency=models.CharField(max_length=10, verbose_name="Tipo de recorrência")
     observation=models.CharField(max_length=100, verbose_name="Observação")
+    link_checkout=models.CharField(max_length=200, default="", blank=False, verbose_name="Link do pagamento")
     category=models.ForeignKey(Category,null=True,on_delete=models.DO_NOTHING, verbose_name="Categoria")
     status=models.BooleanField(default=True, verbose_name="Ativo")
     
