@@ -1,3 +1,5 @@
 mercadopago
 django-cpf
 Pillow
+mysqlclient
+dotenv

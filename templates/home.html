@@ -95,23 +95,9 @@
   </div>
 </section>
 
-{% comment %} <section class="depoimentos">
-  <h2>DEPOIMENTOS DE MULHERES TRANSFORMADAS.</h2>
-  <div>
-    <video controls>
-      <source src='~/Downloads/video.mp4' type="video/mp4" />
-      Seu navegador não suporta a tag de vídeo.
-    </video>
-    <img src="/static/imgs/depoimentos.png" alt="Imagem" />
-  </div>
-</section> {% endcomment %}
-
 <section class="planos" id='planos'>
   <h3>Tudo o que você sempre quis para crescer ainda mais como empreendedora.</h3>
-  {% for category in categories %}
-  <p>{{ category.details }}</p>
   <h4>PLANOS</h4>
-  {% endfor %}
 
   <div class="btn-planos-content">
     <button id="btn-anual" class="btn selected" data-period="anual">Anual</button>
@@ -122,7 +108,7 @@
 
     <!-- Cards para planos anuais aqui -->
     <div class="plano-anual">
-      {% for product in products %}
+      {% for product in products_anual %}
       <div class="plano">
         <h2>{{ product.name }}</h2>
         {% comment %}TODO: por um javascript para formatrar os valores em reais, pois no DB é salvo como decimal (ex:
@@ -133,7 +119,7 @@
         <h3>R${{ product.price_recurency }} */{{ product.type_recurency }}</h3>
         <p>{{ product.observation }}</p>
         <ul>{{ product.description|safe }}</ul>
-        <a class="btn comprar-btn" class="comprar-btn" href="{% url 'checkout' product.id %}"
+        <a class="btn comprar-btn" class="comprar-btn" href="{{ product.link_checkout }}"
           class="btn btn-primary">Comprar</a>
         {% comment %} <button class="comprar-btn" onclick="{% url 'checkout' product.id %}" data-amount="967"
           data-plan="basico">COMPRAR</button> {% endcomment %}
@@ -143,7 +129,7 @@
 
     <!-- Cards para planos mensais aqui -->
     <div class="plano-mensal">
-      {% for product in products %}
+      {% for product in products_mensal %}
       <div class="plano">
         <h2>{{ product.name }}</h2>
         {% comment %}TODO: por um javascript para formatrar os valores em reais, pois no DB é salvo como decimal (ex:
@@ -154,7 +140,7 @@
         <h3>R${{ product.price_recurency }} */{{ product.type_recurency }}</h3>
         <p>{{ product.observation }}</p>
         <ul>{{ product.description|safe }}</ul>
-        <a class="btn comprar-btn" class="comprar-btn" href="{% url 'checkout' product.id %}"
+        <a class="btn comprar-btn" class="comprar-btn" href="{{ product.link_checkout }}"
           class="btn btn-primary">Comprar</a>
         {% comment %} <button class="comprar-btn" onclick="{% url 'checkout' product.id %}" data-amount="967"
           data-plan="basico">COMPRAR</button> {% endcomment %}
