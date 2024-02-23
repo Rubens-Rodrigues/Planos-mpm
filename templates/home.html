@@ -95,7 +95,7 @@
   </div>
 </section>
 
-<section class="planos" id='planos'>
+<section class="planos" id="planos">
   <h3>Tudo o que você sempre quis para crescer ainda mais como empreendedora.</h3>
   <h4>PLANOS</h4>
 
@@ -103,7 +103,7 @@
     <button id="btn-anual" class="btn selected" data-period="anual">Anual</button>
     <button id="btn-mensal" class="btn" data-period="mensal">Mensal</button>
   </div>
-
+  
   <div class="planos-content">
 
     <!-- Cards para planos anuais aqui -->
@@ -113,9 +113,11 @@
         <h2>{{ product.name }}</h2>
         {% comment %}TODO: por um javascript para formatrar os valores em reais, pois no DB é salvo como decimal (ex:
         20.00){% endcomment %}
+        {% if product.price_total != 0 %}
         <p>
-          De <span id="valor-a-pagar">R${{ product.price_total }}</span> por R${{ product.price_discount }} ou
+            De <span id="valor-a-pagar">R${{ product.price_total }}</span> por R${{ product.price_discount }} ou
         </p>
+        {% endif %}
         <h3>R${{ product.price_recurency }} */{{ product.type_recurency }}</h3>
         <p>{{ product.observation }}</p>
         <ul>{{ product.description|safe }}</ul>
@@ -134,9 +136,11 @@
         <h2>{{ product.name }}</h2>
         {% comment %}TODO: por um javascript para formatrar os valores em reais, pois no DB é salvo como decimal (ex:
         20.00){% endcomment %}
+        {% if product.price_total != 0 %}
         <p>
           De <span id="valor-a-pagar">R${{ product.price_total }}</span> por R${{ product.price_discount }} ou
         </p>
+        {% endif %}
         <h3>R${{ product.price_recurency }} */{{ product.type_recurency }}</h3>
         <p>{{ product.observation }}</p>
         <ul>{{ product.description|safe }}</ul>
