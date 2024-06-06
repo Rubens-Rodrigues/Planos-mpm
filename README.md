@@ -2,6 +2,10 @@ Pereparar o ambiente configurando o ambiente virtual
 ```shell
 pip3 install pipenv
 ```
+Crie o ambiente virtual(Rubens acrescentou)
+```shell
+pipenv shell
+```
 
 Instalar o django
 ```shell
@@ -13,9 +17,9 @@ Instalando dependencias
 pip3 install -r requirements.txt
 ```
 
-Instalação do doteenv
+Instalação do doteenv (Rubens(usei o pipenv ao invez de pip3))
 ```shell
-python -m pip3 install python-dotenv
+python -m pip3 install python-dotenv 
 ```
 
 Criar usuário para acesso admin
